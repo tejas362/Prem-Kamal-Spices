@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #1A1A1A;
+  }
+
+  /* Accessible focus outline */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #D97706;
+    outline-offset: 2px;
+  }
+
+  /* Hide scrollbar across all browsers while retaining full scrolling functionality */
+  html,
+  body {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+  }
+
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+/* Hide scrollbar helper classes */
+.scrollbar-none,
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+.scrollbar-none::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Subtle Kashmiri arch border decorative style */
+.kashmiri-border-top {
+  position: relative;
+}
+.kashmiri-border-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D97706, #88132B, #D97706, transparent);
+  border-radius: 9999px;
+}
+
+/* Warm textured paper pattern */
+.bg-spice-pattern {
+  background-color: #FFFFFF;
+  background-image: radial-gradient(#650B1E 0.6px, transparent 0.6px), radial-gradient(#D97706 0.6px, #FFFFFF 0.6px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Gold foil text shimmer */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #B45309 0%, #D97706 35%, #F59E0B 70%, #B45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.crimson-gradient-text {
+  background: linear-gradient(135deg, #3D0511 0%, #88132B 50%, #A31D36 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Luxurious Card Sheen / Reflection */
+.card-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.card-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+.card-sheen:hover::after {
+  left: 140%;
+  transition: all 0.85s ease-in-out;
+}
+
+/* Smooth Infinite Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Floating Aroma Keyframes */
+@keyframes aromaFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+.animate-aroma {
+  animation: aromaFloat 6s ease-in-out infinite;
+}
+
+/* Pulsing subtle glow */
+@keyframes subtleGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(224, 122, 24, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(224, 122, 24, 0.45);
+  }
+}
+
+.animate-subtle-glow {
+  animation: subtleGlow 3.5s ease-in-out infinite;
+}
